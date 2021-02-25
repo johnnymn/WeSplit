@@ -15,14 +15,14 @@ struct ContentView: View {
   // allows us to associate state
   // to an immutable view struct.
   @State private var checkAmount = ""
-  @State private var numberOfPeople = 2
+  @State private var numberOfPeople = "2"
   @State private var tipPercentage = 2
 
   let tipPercentages = [0, 10, 15, 20, 25]
 
   // This is a computed property.
   var totalPerPerson: Double {
-    let peopleCount = Double(numberOfPeople + 2)
+    let peopleCount = Double(numberOfPeople) ?? 1
     let tipSelection = Double(tipPercentages[tipPercentage])
     // When we cast a string to a Double
     // the result is a `Double?` so we will
@@ -38,17 +38,20 @@ struct ContentView: View {
     // slide into new views as needed.
     NavigationView {
       Form {
-        // Generate a list of numbers to populate
-        // the Picker that we use to capture the
-        // number of people.
-        Picker("Number of people", selection: $numberOfPeople) {
-          ForEach(2..<100) {
-            Text("\($0)")
-          }
+        // Capture the number of people with a text input.
+        Section(header: Text("Number of people")) {
+          // The UIKeyboardType.decimalPad
+          // only allows typing numbers.
+          TextField("Number of people", text: $numberOfPeople)
+                  .keyboardType(.numberPad)
+        }.onTapGesture {
+          // Dismiss the keyboard by tapping
+          // anywhere on this section.
+          self.endTextEditing()
         }
 
         // Capture the check amount with a text input.
-        Section {
+        Section(header: Text("Check amount")) {
           // The UIKeyboardType.decimalPad
           // only allows typing numbers.
           TextField("Amount", text: $checkAmount)

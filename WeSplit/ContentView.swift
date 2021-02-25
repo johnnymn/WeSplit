@@ -4,24 +4,61 @@ struct ContentView: View {
   // The @State property wrapper
   // allows us to associate state
   // to an immutable view struct.
-  @State private var tapCount = 0
+  @State private var checkAmount = ""
+  @State private var numberOfPeople = 2
+  @State private var tipPercentage = 2
+
+  let tipPercentages = [0, 10, 15, 20, 25]
+
+  // This is a computed property.
+  var totalPerPerson: Double {
+    let peopleCount = Double(numberOfPeople + 2)
+    let tipSelection = Double(tipPercentages[tipPercentage])
+    // When we cast a string to a Double
+    // the result is a `Double?` so we will
+    // set this to 0 if the casting fails.
+    let orderAmount = Double(checkAmount) ?? 0
+    let tipAmount = (orderAmount * tipSelection) / 100
+
+    return (orderAmount + tipAmount) / peopleCount
+  }
 
   var body: some View {
-    // Place a navigation at
-    // the top of the screen.
+    // The NavigationView let iOS
+    // slide into new views as needed.
     NavigationView {
-      // Forms are scrolling lists
-      // of static controls.
       Form {
-        Section {
-          Text("Hello World!")
+        // Generate a list of numbers to populate
+        // the Picker that we use to capture the
+        // number of people.
+        Picker("Number of people", selection: $numberOfPeople) {
+          ForEach(2..<100) {
+            Text("\($0)")
+          }
         }
-      }.navigationBarTitle("Swift")
-    }
 
-    // A button that mutates state.
-    Button("Tap Count: \(tapCount)") {
-      self.tapCount += 1
+        // Capture the check amount with a text input.
+        Section {
+          // The UIKeyboardType.decimalPad
+          // only allows typing numbers.
+          TextField("Amount", text: $checkAmount)
+                  .keyboardType(.decimalPad)
+        }
+
+        // Use a picker to get the tip percentage.
+        Section(header: Text("How much tip do you want to leave?")) {
+          Picker("Tip percentage", selection: $tipPercentage) {
+            ForEach(0..<tipPercentages.count) {
+              Text("\(tipPercentages[$0])%")
+            }
+          }.pickerStyle(SegmentedPickerStyle())
+        }
+
+        Section(header: Text("Amount per person")) {
+          // Format string to only 2 decimals.
+          Text("$\(totalPerPerson, specifier: "%.2f")")
+        }
+      }.navigationBarTitle("WeSplit")
     }
   }
 }

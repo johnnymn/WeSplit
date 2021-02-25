@@ -1,5 +1,15 @@
 import SwiftUI
 
+extension View {
+  // Dismiss the keyboard.
+  func endTextEditing() {
+    UIApplication.shared.sendAction(
+            #selector(UIResponder.resignFirstResponder),
+            to: nil, from: nil, for: nil
+    )
+  }
+}
+
 struct ContentView: View {
   // The @State property wrapper
   // allows us to associate state
@@ -43,6 +53,10 @@ struct ContentView: View {
           // only allows typing numbers.
           TextField("Amount", text: $checkAmount)
                   .keyboardType(.decimalPad)
+        }.onTapGesture {
+          // Dismiss the keyboard by tapping
+          // anywhere on this section.
+          self.endTextEditing()
         }
 
         // Use a picker to get the tip percentage.

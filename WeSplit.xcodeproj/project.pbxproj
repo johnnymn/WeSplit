@@ -10,6 +10,7 @@
 		AACA31FC20AC7A27C984D936 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACA39F26402CD1BA498A470 /* ContentView.swift */; };
 		AACA34080C5F2DF526489E20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AACA3F217057B8D717852EE6 /* Assets.xcassets */; };
 		AACA341A509105C19FA2BC77 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AACA39FF786B2D1E5B368BC2 /* Preview Assets.xcassets */; };
+		AACA3876FE2FA6E2EA0FC68A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = AACA3D127CF2FEB956639C69 /* README.md */; };
 		AACA3CB802BB4E94977B1779 /* WeSplitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACA38D6E41002BDF95E8E09 /* WeSplitApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -18,6 +19,7 @@
 		AACA38D6E41002BDF95E8E09 /* WeSplitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeSplitApp.swift; sourceTree = "<group>"; };
 		AACA39F26402CD1BA498A470 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AACA39FF786B2D1E5B368BC2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AACA3D127CF2FEB956639C69 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AACA3DF9A062F5971C8455E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		AACA3F217057B8D717852EE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,6 +51,7 @@
 				AACA39A98226AB79949E5717 /* Preview Content */,
 				AACA38D6E41002BDF95E8E09 /* WeSplitApp.swift */,
 				AACA39F26402CD1BA498A470 /* ContentView.swift */,
+				AACA3D127CF2FEB956639C69 /* README.md */,
 			);
 			path = WeSplit;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			files = (
 				AACA3CB802BB4E94977B1779 /* WeSplitApp.swift in Sources */,
 				AACA31FC20AC7A27C984D936 /* ContentView.swift in Sources */,
+				AACA3876FE2FA6E2EA0FC68A /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

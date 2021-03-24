@@ -57,8 +57,6 @@ struct ContentView: View {
           TextField("Amount", text: $checkAmount)
                   .keyboardType(.decimalPad)
         }.onTapGesture {
-          // Dismiss the keyboard by tapping
-          // anywhere on this section.
           self.endTextEditing()
         }
 
@@ -74,6 +72,8 @@ struct ContentView: View {
         Section(header: Text("Amount per person")) {
           // Format string to only 2 decimals.
           Text("$\(totalPerPerson, specifier: "%.2f")")
+        }.onTapGesture {
+          self.endTextEditing()
         }
       }.navigationBarTitle("WeSplit")
     }

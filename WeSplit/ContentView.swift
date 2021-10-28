@@ -4,8 +4,8 @@ extension View {
   // Dismiss the keyboard.
   func endTextEditing() {
     UIApplication.shared.sendAction(
-            #selector(UIResponder.resignFirstResponder),
-            to: nil, from: nil, for: nil
+      #selector(UIResponder.resignFirstResponder),
+      to: nil, from: nil, for: nil
     )
   }
 }
@@ -43,7 +43,7 @@ struct ContentView: View {
           // The UIKeyboardType.decimalPad
           // only allows typing numbers.
           TextField("Number of people", text: $numberOfPeople)
-                  .keyboardType(.numberPad)
+            .keyboardType(.numberPad)
         }.onTapGesture {
           // Dismiss the keyboard by tapping
           // anywhere on this section.
@@ -55,7 +55,7 @@ struct ContentView: View {
           // The UIKeyboardType.decimalPad
           // only allows typing numbers.
           TextField("Amount", text: $checkAmount)
-                  .keyboardType(.decimalPad)
+            .keyboardType(.decimalPad)
         }.onTapGesture {
           self.endTextEditing()
         }
@@ -63,7 +63,7 @@ struct ContentView: View {
         // Use a picker to get the tip percentage.
         Section(header: Text("How much tip do you want to leave?")) {
           Picker("Tip percentage", selection: $tipPercentage) {
-            ForEach(0..<tipPercentages.count) {
+            ForEach(0 ..< tipPercentages.count) {
               Text("\(tipPercentages[$0])%")
             }
           }.pickerStyle(SegmentedPickerStyle())
